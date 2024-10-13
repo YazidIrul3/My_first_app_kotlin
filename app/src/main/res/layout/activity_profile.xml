@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:paddingHorizontal="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="Profile"
+        android:textSize="100dp"
+        android:textStyle="bold"
+        android:id="@+id/label_profile"
+        android:textColor="@color/blue"
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/profie_layout"
+            app:layout_constraintTop_toBottomOf="@+id/label_profile"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@color/blue"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="profile"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="90dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/name_txtView"
+                    android:textSize="70dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Nama Lengkap"
+                    />
+
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/noHP_txtView"
+                    android:textSize="40dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="087657576"
+                    />
+
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/alamat_txtView"
+                    android:textSize="40dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="Jl. Gatot Subroto no.23"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="300dp"
+            android:paddingVertical="15dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="200dp"
+            android:textSize="30dp"
+            android:text="Logout"
+            android:background="@drawable/btn_logout"
+            app:layout_constraintTop_toBottomOf="@+id/profie_layout"
+            tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
