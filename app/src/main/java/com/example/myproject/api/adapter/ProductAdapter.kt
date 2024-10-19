@@ -12,27 +12,28 @@ import com.bumptech.glide.Glide
 import com.example.myproject.R
 import com.example.myproject.api.model.Product
 
-class ProductAdapter (private val onClick : (Product) -> Unit) :
-    ListAdapter<Product, ProductAdapter.ProductViewHolder>(ProductCallback) {
-    class ProductViewHolder(itemView: View, val onClick: (Product) -> Unit) :
-        RecyclerView.ViewHolder(itemView) {
+class ProductAdapter(private val onClick: (Product) -> Unit) :
+ListAdapter<Product,ProductAdapter.ProductViewHolder>(ProductCallBack){
 
-        private val title:TextView = itemView.findViewById((R.id.title))
-        private val thumbnail:ImageView = itemView.findViewById((R.id.thumbnail))
-        private val price:TextView = itemView.findViewById((R.id.price))
-        private val brand:TextView = itemView.findViewById((R.id.brand))
+    class ProductViewHolder(itemView:View,val onClick: (Product) -> Unit) :
+    RecyclerView.ViewHolder(itemView){
 
-        private  var currentProduct:Product ?=null
+        private val thumbnail:ImageView = itemView.findViewById(R.id.thumbnail)
+        private val title:TextView = itemView.findViewById(R.id.title)
+        private val brand:TextView = itemView.findViewById(R.id.brand)
+        private val price:TextView = itemView.findViewById(R.id.price)
+
+        private var currentProduct: Product? = null
 
         init {
-            itemView.setOnClickListener{
-                currentProduct?.let{
+            itemView.setOnClickListener {
+                currentProduct?.let {
                     onClick(it)
                 }
             }
         }
 
-        fun bind(product : Product) {
+        fun bind(product: Product) {
             currentProduct = product
 
             title.text = product.title
@@ -45,18 +46,18 @@ class ProductAdapter (private val onClick : (Product) -> Unit) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_product,parent,false)
+
         return ProductViewHolder(view,onClick)
-
-
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        val product = getItem(position)
+       val product = getItem(position)
         holder.bind(product)
     }
+
 }
 
-object ProductCallback : DiffUtil.ItemCallback<Product>() {
+object ProductCallBack: DiffUtil.ItemCallback<Product>() {
     override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
         return  oldItem == newItem
     }
